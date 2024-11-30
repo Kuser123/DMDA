@@ -1,0 +1,59 @@
+x<-c(141, 134, 178, 156, 108, 116, 119, 143, 162, 130)
+y<-c(62, 85, 56, 21, 47, 17, 76, 92, 62, 58)
+relation_model<-lm(y~x)
+print(relation_model)
+print(summary(relation_model))
+png(file="linear_regression.png")
+plot(y,x,col="red",
+     main="Height and Weight Regression",
+     abline(lm(x~y)), cex=1.3, pch=16,
+     xlab="Weight in Kg",ylab="Height in cm")
+dev.off()
+
+OUTPUT:
+x<-c(141, 134, 178, 156, 108, 116, 119, 143, 162, 130)
+
+> y<-c(62, 85, 56, 21, 47, 17, 76, 92, 62, 58)
+
+> relation_model<-lm(y~x)
+
+> print(relation_model)
+
+Call:
+lm(formula = y ~ x)
+
+Coefficients:
+(Intercept)            x  
+   47.50833      0.07276  
+
+
+> print(summary(relation_model))
+
+Call:
+lm(formula = y ~ x)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-38.948  -7.390   1.869  15.933  34.087 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)
+(Intercept) 47.50833   55.18118   0.861    0.414
+x            0.07276    0.39342   0.185    0.858
+
+Residual standard error: 25.96 on 8 degrees of freedom
+Multiple R-squared:  0.004257,	Adjusted R-squared:  -0.1202 
+F-statistic: 0.0342 on 1 and 8 DF,  p-value: 0.8579
+
+
+> png(file="linear_regression.png")
+
+> plot(y,x,col="red",
++      main="Height and Weight Regression",
++      abline(lm(x~y)), cex=1.3, pch=16,
++      xlab="Weight in Kg",ylab="Height in  ..." ... [TRUNCATED] 
+
+> dev.off()
+png 
+  2 
+> 

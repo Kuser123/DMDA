@@ -1,0 +1,94 @@
+x<-c(12,7,3,4.2,18,2,54,-21,8,-5)
+result.mean<-mean(x)
+result.median<-median(x)
+result.mode<-mode(x)
+print(paste("mean:",result.mean))
+print(paste("median:",result.median))
+print(paste("mode:",result.mode))
+
+#MEAN
+#if there are null values
+x<-c(12,7,3,4.2,18,2,54,-21,8,-5, NA)
+result.mean<-mean(x, na.rm=TRUE)
+print(paste("mean:",result.mean))
+
+#if there exists outliers
+x<-c(12,7,3,4.2,18,2,54,-21,8,-5)
+result.mean<-mean(x, trim=0.3)
+#0.3 means it will exclude first 3 values and last 3 values
+print(paste("mean:",result.mean))
+
+#MODE
+getmode <- function(v){
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+#for numerals
+v<-c(2,1,2,3,1,2,3,4,1,5,5,3,2,3)
+result<-getmode(v)
+print(paste("mode:",result))
+
+#for characters
+charv<-c("o","it","the","it","it")
+result<-getmode(charv)
+print(paste("mode:",result))
+
+
+
+OUTPUT:
+x<-c(12,7,3,4.2,18,2,54,-21,8,-5)
+
+> result.mean<-mean(x)
+
+> result.median<-median(x)
+
+> result.mode<-mode(x)
+
+> print(paste("mean:",result.mean))
+[1] "mean: 8.22"
+
+> print(paste("median:",result.median))
+[1] "median: 5.6"
+
+> print(paste("mode:",result.mode))
+[1] "mode: numeric"
+
+> #MEAN
+> #if there are null values
+> x<-c(12,7,3,4.2,18,2,54,-21,8,-5, NA)
+
+> result.mean<-mean(x, na.rm=TRUE)
+
+> print(paste("mean:",result.mean))
+[1] "mean: 8.22"
+
+> #if there exists outliers
+> x<-c(12,7,3,4.2,18,2,54,-21,8,-5)
+
+> result.mean<-mean(x, trim=0.3)
+
+> #0.3 means it will exclude first 3 values and last 3 values
+> print(paste("mean:",result.mean))
+[1] "mean: 5.55"
+
+> #MODE
+> getmode <- function(v){
++   uniqv <- unique(v)
++   uniqv[which.max(tabulate(match(v, uniqv)))]
++ }
+
+> #for numerals
+> v<-c(2,1,2,3,1,2,3,4,1,5,5,3,2,3)
+
+> result<-getmode(v)
+
+> print(paste("mode:",result))
+[1] "mode: 2"
+
+> #for characters
+> charv<-c("o","it","the","it","it")
+
+> result<-getmode(charv)
+
+> print(paste("mode:",result))
+[1] "mode: it"

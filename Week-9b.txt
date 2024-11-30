@@ -1,0 +1,20 @@
+input<-mtcars[,c("mpg","wt","disp","hp")]
+Model<-lm(mpg~wt+disp+hp, data=input)
+print(Model)
+
+
+OUTPUT:
+input<-mtcars[,c("mpg","wt","disp","hp")]
+
+> Model<-lm(mpg~wt+disp+hp, data=input)
+
+> print(Model)
+
+Call:
+lm(formula = mpg ~ wt + disp + hp, data = input)
+
+Coefficients:
+(Intercept)           wt         disp           hp  
+  37.105505    -3.800891    -0.000937    -0.031157  
+
+> 
